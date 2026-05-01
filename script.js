@@ -38,19 +38,24 @@ function helloWorld(){
 
 function simpleRead(){
 console.log("Reading message");
-firebase.database().ref('/message').child('message').once('value', displayRead);
+firebase.database().ref('/').set('Read carefuly').once('value',display, fb-_readError);
 console.log("Leaving simpleRead")
+
 }
 
-firebase.database().ref('/message').once('value',Users )
-function User(snapshot){console.log(snapshot.val());
-}
-function displayRead(snapshot){
-    console.log("Running displayRead), the message is:" + snapshot.val())
-    HTML_OUTPUT.innerHTML = snapshot.val();
+
+function display(snapshot){
+console.log("Running display(), the message is:" + snapshot.val())
+HTML_OUTPUT.innerHTML = snapshot.val();
 }
 
-function simpleRead(){
+function display(snapshot){
+  var dbData = snapshot.val();
+  if (dbData ==null)
+    console.log("The message is:" + dbData)
+}
 
-    
+function fb_readError(error){
+  console.log("There was an error reading the message");
+  console.error(error);
 }
