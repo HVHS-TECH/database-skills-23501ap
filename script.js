@@ -36,26 +36,43 @@ function helloWorld(){
   )
 }
 
-function simpleRead(){
-console.log("Reading message");
-firebase.database().ref('/').set('Read carefuly').once('value',display, fb-_readError);
-console.log("Leaving simpleRead")
+function Read(){
+console.log()
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function display(snapshot){
+  var dbData = snapshot.val();
+  if (dbData ==null)
+    console.log(dbData)
+}
+
+function fb_readError(error){
+  console.log("There was an error reading the message");
+  console.error(error);
+}
+
+function fb_readlistener(){
+console.log("Read Listener");
+firebase.database().ref('/message').on('value',fb_logDatabaseRead)
 }
 
 
 function display(snapshot){
 console.log("Running display(), the message is:" + snapshot.val())
 HTML_OUTPUT.innerHTML = snapshot.val();
-}
-
-function display(snapshot){
-  var dbData = snapshot.val();
-  if (dbData ==null)
-    console.log("The message is:" + dbData)
-}
-
-function fb_readError(error){
-  console.log("There was an error reading the message");
-  console.error(error);
 }
