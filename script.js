@@ -36,10 +36,6 @@ function helloWorld(){
   )
 }
 
-function Read(){
-console.log()
-
-}
 
 
 
