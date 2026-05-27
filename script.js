@@ -15,7 +15,7 @@ const HTML_OUTPUT = document.getElementById("databaseOutput");
  }
  
 function helloWorld() {
-  console.log("helloWorld")
+  console.log(helloWorld)
   firebase.database().ref('/').set(
     {
       message: 'Kia ora te ao'
@@ -24,7 +24,7 @@ function helloWorld() {
 }
 
 function GoodBye() {
-  console.log("GoodBye()")
+  console.log(GoodBye)
   firebase.database().ref('/').set(
     {
       message: 'ka kite āno'
